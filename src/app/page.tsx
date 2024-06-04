@@ -1,20 +1,16 @@
 "use client"
-import { CustomButton } from "@/components/CustomButton";
-import { FormEvent } from "react";
 
+import { useState } from "react";
 
-const Page = () =>  {
-  const handleForSubmit=(event: FormEvent)=>{
-    event.preventDefault();
-    alert("Opa! mandandoo...")
+const Page = () => {
+  const [count, setCount] = useState(0);
+  const handleClickButton = () => {
+    setCount(count+1);
   }
   return (
     <div className="w-screen h-screen flex  flex-col justify-center items-center mr-4">
-      <h1 className="text-5xl mb-3">Form de login</h1>
-      <form onSubmit={handleForSubmit}>
-        <input type="text" name="" id="" />
-        <input type="submit" value="Enviar" />
-      </form>
+      <p>{count}</p>
+      <button onClick={handleClickButton} className="bg-blue-500 p-3">Adicionar mais 1</button>
     </div>
   );
 }
